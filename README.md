@@ -26,9 +26,10 @@ Este es el primer registro de avances en el desarrollo de **Farm Escape**, un vi
     [Unity 3D Essentials](https://learn.unity.com/pathway/unity-essentials/unit/3d-essentials?version=6)  
 
 ### 🔨 Creación del Mapa  
-- Instalé **ProBuilder** para construir, editar y personalizar el nivel de la granja.  
+- Instalé **ProBuilder** para construir, editar y personalizar el nivel de la granja.
 - Exploré referencias gráficas y busqué modelos 3D para ambientar el juego.  
-- Investigué en **Sketchfab** buscando elementos de decoración adecuados.  
+- Investigué en **Sketchfab** buscando elementos de decoración adecuados.
+- instalé paquetes de assets Unity.
 
 ---
 
