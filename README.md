@@ -31,13 +31,13 @@ Este es el primer registro de avances en el desarrollo de **Farm Escape**, un vi
 - Investigué en **Sketchfab** buscando elementos de decoración adecuados.
 - instalé paquetes de assets Unity.
   
-🛠️ Problema con las Texturas y Solución
+### 🛠️ Problema con las Texturas y Solución
 Tuve problemas con las texturas en Unity, ya que algunos materiales aparecían en color rosa debido a incompatibilidades con el Universal Render Pipeline (URP).
 
 📌 Solución aplicada:
-1️⃣ Seleccioné los materiales y texturas afectados.
-2️⃣ Fui a Rendering > Material > Convert para convertirlos al formato compatible con URP.
-3️⃣ Después de la conversión, los materiales volvieron a mostrarse correctamente en la escena.
+- 1️⃣ Seleccioné los materiales y texturas afectados.
+- 2️⃣ Fui a Rendering > Material > Convert para convertirlos al formato compatible con URP.
+- 3️⃣ Después de la conversión, los materiales volvieron a mostrarse correctamente en la escena.
 
 🔎 Aprendizaje: Ahora entiendo mejor cómo funcionan los materiales en Unity y cómo ajustarlos para evitar errores al cambiar de render pipeline.
 
@@ -47,7 +47,6 @@ Tuve problemas con las texturas en Unity, ya que algunos materiales aparecían e
 ## 📌 Próximos Pasos  
 🔹 Implementar el control del jugador mediante **reconocimiento de voz**.  
 🔹 Crear una versión jugable del nivel con objetivos claros.  
-
 ---
 
 📌 **Este README se actualizará semanalmente con los avances del proyecto.** 🚀  
