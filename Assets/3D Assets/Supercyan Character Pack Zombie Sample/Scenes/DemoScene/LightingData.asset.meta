@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d275f529a3c5d2949a58e5d126833d2f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 131604
+  packageName: 'Character Pack: Zombie Sample'
+  packageVersion: 3.0.0
+  assetPath: Assets/Supercyan Character Pack Zombie Sample/Scenes/DemoScene/LightingData.asset
+  uploadId: 691333

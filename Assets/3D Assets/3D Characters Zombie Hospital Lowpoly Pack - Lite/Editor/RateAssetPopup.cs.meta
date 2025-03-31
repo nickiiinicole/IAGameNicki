@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5fb32044abcc69e4fb54566d72f7ce31
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274047
+  packageName: 3D Characters Zombie Hospital Lowpoly Pack - Lite
+  packageVersion: 1.01
+  assetPath: Assets/3D Characters Zombie Hospital Lowpoly Pack - Lite/Editor/RateAssetPopup.cs
+  uploadId: 707790

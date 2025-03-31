@@ -1,0 +1,48 @@
+DictationRecognizer: Reconoce de forma continua el discurso y lo convierte a texto.
+
+KeywordRecognizer: Detecta palabras clave específicas definidas en una lista.
+
+GrammarRecognizer: Utiliza un archivo XML con reglas de gramática (en este caso, con etiquetas semánticas) para reconocer frases estructuradas.
+
+PhraseRecognitionSystem: Es una clase estática que emite eventos globales (por ejemplo, para errores o cambios de estado) durante el reconocimiento de frases.
+
+PhraseRecognizedEventArgs: Se utiliza en los callbacks de los reconocedores y contiene información como el texto reconocido, nivel de confianza y, en el caso de gramáticas, significados semánticos.
+
+PhraseRecognizer: Es la clase base abstracta de la que heredan KeywordRecognizer y GrammarRecognizer.
+
+SemanticMeaning: Estructura que almacena pares clave/valor provenientes de etiquetas semánticas definidas en el XML de gramática.
+
+
+
+
+
+
+
+Explicación General
+DictationRecognizer:
+
+Se inicia y se suscribe a DictationResult, que recibe el texto hablado en tiempo real.
+
+KeywordRecognizer:
+
+Se inicializa con un arreglo de palabras clave y se activa el evento OnPhraseRecognized para identificar cuándo se dice alguna de esas palabras exactas.
+
+GrammarRecognizer:
+
+Usa el archivo XML para definir un conjunto de reglas y etiquetas semánticas. En el evento OnPhraseRecognized, se muestran tanto el texto reconocido como las etiquetas semánticas asociadas (utilizando SemanticMeaning).
+
+PhraseRecognitionSystem:
+
+Esta clase estática ofrece eventos globales para notificar errores (OnError) o cambios de estado (OnStatusChanged) en el sistema de reconocimiento, lo que puede ayudar a monitorear el estado general.
+
+PhraseRecognizedEventArgs:
+
+Es el objeto que se pasa a los callbacks de los reconocedores y contiene información relevante (texto, nivel de confianza, semántica, etc.).
+
+PhraseRecognizer:
+
+Es la clase base abstracta para KeywordRecognizer y GrammarRecognizer, por lo que no se instancia directamente, pero sus propiedades y eventos (como OnPhraseRecognized) se heredan.
+
+SemanticMeaning:
+
+Se usa para extraer la información semántica (pares clave/valor) que se haya definido en el XML de gramática.

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9638f4fb02de02f49ae57e7f5e2373df
+timeCreated: 1465205118
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 131604
+  packageName: 'Character Pack: Zombie Sample'
+  packageVersion: 3.0.0
+  assetPath: Assets/Supercyan Character Pack Zombie Sample/Scenes/DemoScene.unity
+  uploadId: 691333

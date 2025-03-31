@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://www.w3.org/2001/06/grammar" version="1.0" xml:lang="es-ES" root="command">
+	<rule id="command">
+		<one-of>
+			<item>avanza</item>
+			<item>detente</item>
+			<item>dispara</item>
+			<item>abre la puerta</item>
+		</one-of>
+	</rule>
+</grammar>

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c77365c5675a2c14bb93b5be8c4aec37
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 131604
+  packageName: 'Character Pack: Zombie Sample'
+  packageVersion: 3.0.0
+  assetPath: Assets/Supercyan Character Pack Zombie Sample/Shaders/SupercyanShader.shader
+  uploadId: 691333

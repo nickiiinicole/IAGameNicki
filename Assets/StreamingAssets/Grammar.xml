@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xml:lang="en-US" root="rootRule">
+	<rule id="rootRule">
+		<one-of>
+			<item>start</item>
+			<item>stop</item>
+			<item>pause</item>
+			<item>begin</item>
+			<item>end</item>
+		</one-of>
+	</rule>
+</grammar>

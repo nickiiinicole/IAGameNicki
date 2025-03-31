@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: aa2670a4e7c366946a3397330117d659
+timeCreated: 1486984085
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 131604
+  packageName: 'Character Pack: Zombie Sample'
+  packageVersion: 3.0.0
+  assetPath: Assets/Supercyan Character Pack Zombie Sample/Scripts/ZombieFree.cs
+  uploadId: 691333

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aa27a5d234e148745a90790e1c87ce24
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 131604
+  packageName: 'Character Pack: Zombie Sample'
+  packageVersion: 3.0.0
+  assetPath: Assets/Supercyan Character Pack Zombie Sample/Prefabs/SimpleMovement/High
+    Quality/FreeZombieSimpleMovement.prefab
+  uploadId: 691333

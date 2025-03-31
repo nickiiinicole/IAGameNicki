@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xml:lang="en-US" root="rootRule">
+	<!-- Regla raíz que permite reconocer los comandos definidos -->
+	<rule id="rootRule">
+		<one-of>
+			<item>
+				<ruleref uri="#playRule"/>
+			</item>
+			<item>
+				<ruleref uri="#stopRule"/>
+			</item>
+		</one-of>
+	</rule>
+	<!-- Regla para el comando "play" o "start" con semántica asociada -->
+	<rule id="playRule" scope="public">
+		<tag>out.action="play";</tag>
+		<one-of>
+			<item>play</item>
+			<item>start</item>
+		</one-of>
+	</rule>
+	<!-- Regla para el comando "stop" o "end" con semántica asociada -->
+	<rule id="stopRule" scope="public">
+		<tag>out.action="stop";</tag>
+		<one-of>
+			<item>stop</item>
+			<item>end</item>
+		</one-of>
+	</rule>
+</grammar>
