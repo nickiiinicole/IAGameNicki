@@ -41,7 +41,15 @@ Tuve problemas con las texturas en Unity, ya que algunos materiales aparecían e
 
 🔎 Aprendizaje: Ahora entiendo mejor cómo funcionan los materiales en Unity y cómo ajustarlos para evitar errores al cambiar de render pipeline.
 
+### 🗺️ Creación del Mapa
+-He decidido optar por un estilo low poly para simplificar el desarrollo y optimizar el rendimiento.
 
+-He comenzado a diseñar el mapa, alineando objetos correctamente con el suelo utilizando Vertex Snapping (V) y la cuadrícula (CTRL/CMD).
+
+### 🎤 Pruebas con Reconocimiento de Voz
+-He empezado a experimentar con el dictado por voz para reconocer frases. De momento, las frases se detectan, pero aún no he logrado hacer que el sistema funcione correctamente para ejecutar acciones dentro del juego.
+
+Seguiré investigando cómo mejorar la precisión del reconocimiento de voz.
 ---
 
 ## 📌 Próximos Pasos  
