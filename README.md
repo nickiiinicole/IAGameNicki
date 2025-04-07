@@ -29,7 +29,7 @@ Este es el primer registro de avances en el desarrollo de **Farm Escape**, un vi
 - Instalé **ProBuilder** para construir, editar y personalizar el nivel de la granja.
 - Exploré referencias gráficas y busqué modelos 3D para ambientar el juego.  
 - Investigué en **Sketchfab** buscando elementos de decoración adecuados.
-- instalé paquetes de assets Unity.
+- Instalé paquetes de assets Unity.
   
 ### 🛠️ Problema con las Texturas y Solución
 Tuve problemas con las texturas en Unity, ya que algunos materiales aparecían en color rosa debido a incompatibilidades con el Universal Render Pipeline (URP).
@@ -47,7 +47,8 @@ Tuve problemas con las texturas en Unity, ya que algunos materiales aparecían e
 -He comenzado a diseñar el mapa, alineando objetos correctamente con el suelo utilizando Vertex Snapping (V) y la cuadrícula (CTRL/CMD).
 
 ### 🎤 Pruebas con Reconocimiento de Voz
--He empezado a experimentar con el dictado por voz para reconocer frases. De momento, las frases se detectan, pero aún no he logrado hacer que el sistema funcione correctamente para ejecutar acciones dentro del juego.
+-He empezado a experimentar con el dictado por voz para reconocer frases. De momento, las frases se detectan, pero aún no he logrado hacer que el sistema funcione correctamente para ejecutar acciones dentro del juego, sigo teniedno problemas con lo de la voz porque me recoge las frases pero no hace ninguna acción estoy analizando si uso microsoft speech recognition pero es un poco complejo.
+
 
 Seguiré investigando cómo mejorar la precisión del reconocimiento de voz.
 ---
