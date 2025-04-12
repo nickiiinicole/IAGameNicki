@@ -14,9 +14,9 @@ using System.Collections.Generic;
 public class SpeechRecognitionFullExample : MonoBehaviour
 {
     // Instancias de los reconocedores
-    //private DictationRecognizer dictationRecognizer;
+  //  private DictationRecognizer dictationRecognizer;
     private KeywordRecognizer keywordRecognizer;
-    //private GrammarRecognizer grammarRecognizer/*;*/
+    //private GrammarRecognizer grammarRecognizer;
 
     // Variable para almacenar el texto reconocido por el dictado
     private string recognizedText = "";
@@ -25,13 +25,13 @@ public class SpeechRecognitionFullExample : MonoBehaviour
     {
         // ------------------------ DictationRecognizer ------------------------
         // Este reconocedor convierte el discurso en texto en tiempo real.
-        //dictationRecognizer = new DictationRecognizer();
-        //dictationRecognizer.DictationResult += OnDictationResult;
-        //dictationRecognizer.Start(); // Inicia el dictado
+      //  dictationRecognizer = new DictationRecognizer();
+      //  dictationRecognizer.DictationResult += OnDictationResult;
+      //  dictationRecognizer.Start(); // Inicia el dictado
 
         // ------------------------ KeywordRecognizer ------------------------
         // Reconoce únicamente palabras clave predefinidas.
-        string[] keywords = { "play", "stop", "pause" };
+        string[] keywords = { "play", "stop", "pause", "avanzar", "hacia adelante", "vamos hacia adelante", "hacia atras", "vamos hacia atras" };
         keywordRecognizer = new KeywordRecognizer(keywords);
         keywordRecognizer.OnPhraseRecognized += OnKeywordRecognized;
         keywordRecognizer.Start(); // Inicia la detección de palabras clave
@@ -39,9 +39,9 @@ public class SpeechRecognitionFullExample : MonoBehaviour
         // ------------------------ GrammarRecognizer ------------------------
         // Utiliza un archivo XML para definir reglas de reconocimiento con semántica.
         // El archivo 'GrammarWithSemantics.xml' debe ubicarse en la carpeta StreamingAssets.
-        //grammarRecognizer = new GrammarRecognizer(Application.streamingAssetsPath + "/GrammarWithSemantics.xml");
-        //grammarRecognizer.OnPhraseRecognized += OnGrammarRecognized;
-        //grammarRecognizer.Start(); // Inicia el reconocimiento basado en gramática
+     //  grammarRecognizer = new GrammarRecognizer(Application.streamingAssetsPath + "/GrammarWithSemantics.xml");
+     //  grammarRecognizer.OnPhraseRecognized += OnGrammarRecognized;
+     //  grammarRecognizer.Start(); // Inicia el reconocimiento basado en gramática
 
         // ------------------------ PhraseRecognitionSystem ------------------------
         // Clase estática que envía eventos globales del sistema de reconocimiento.
@@ -95,21 +95,23 @@ public class SpeechRecognitionFullExample : MonoBehaviour
     void OnDestroy()
     {
         // Se detienen y liberan los reconocedores si están en ejecución.
-        //if (dictationRecognizer != null && dictationRecognizer.Status == SpeechSystemStatus.Running)
-        //{
-        //    dictationRecognizer.Stop();
-        //    dictationRecognizer.Dispose();
-        //}
-        if (keywordRecognizer != null && keywordRecognizer.IsRunning)
-        {
-            keywordRecognizer.Stop();
-            keywordRecognizer.Dispose();
-        }
-        //if (grammarRecognizer != null && grammarRecognizer.IsRunning)
-        //{
-        //    grammarRecognizer.Stop();
-        //    grammarRecognizer.Dispose();
-        //}
+     //   if (dictationRecognizer != null && dictationRecognizer.Status == SpeechSystemStatus.Running)
+     //   {
+     //       dictationRecognizer.Stop();
+     //       dictationRecognizer.Dispose();
+     //   }
+
+       if (keywordRecognizer != null && keywordRecognizer.IsRunning)
+       {
+           keywordRecognizer.Stop();
+           keywordRecognizer.Dispose();
+       }
+
+     //  if (grammarRecognizer != null && grammarRecognizer.IsRunning)
+     //  {
+     //      grammarRecognizer.Stop();
+     //      grammarRecognizer.Dispose();
+     //  }
 
         // Se desuscriben los eventos globales del PhraseRecognitionSystem.
         PhraseRecognitionSystem.OnError -= OnPhraseRecognitionSystemError;

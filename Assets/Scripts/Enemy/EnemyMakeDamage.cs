@@ -9,6 +9,8 @@ public class EnemyMakeDamage : MonoBehaviour
     private float damageTimer = 0f;
     private GameObject playerRef = null;
 
+    [SerializeField] Animator m_Animator;
+
     void Update()
     {
         if (playerInside)
@@ -25,7 +27,8 @@ public class EnemyMakeDamage : MonoBehaviour
 
     private void DamagePlayer()
     {
-        Debug.Log($"Jugador dañado por {damageAmount} punto(s) de daño");
+        //Debug.Log($"Jugador dañado por {damageAmount} punto(s) de daño");
+        m_Animator.SetTrigger("isAttacking");
 
         if (playerRef != null) {
             PlayerController playerController = playerRef.GetComponent<PlayerController>();

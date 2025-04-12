@@ -5,7 +5,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public ThirdPersonCharacter character;
+    public ThirdPersonCharacter characterController;
     public Transform PlayerTargert;
 
     void Start()
@@ -15,17 +15,15 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-
-        
         agent.SetDestination(PlayerTargert.position);
 
         if (agent.remainingDistance > agent.stoppingDistance)
         {
-            character.Move(agent.desiredVelocity, false, false);
+            characterController.Move(agent.desiredVelocity, false, false);
         }
         else
         {
-            character.Move(Vector3.zero, false, false);
+            characterController.Move(Vector3.zero, false, false);
         }
 
     }

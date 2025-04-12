@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float health;
 
+    [SerializeField] Animator m_Animator;
+
     void Start()
     {
         agent.updateRotation = false;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0) {
             health = 0;
             // Animar muerte y quitar el control de voz al user
+            m_Animator.SetTrigger("isHurting");
         }
     }
 

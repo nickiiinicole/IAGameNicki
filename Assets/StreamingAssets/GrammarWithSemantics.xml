@@ -13,7 +13,7 @@
 	</rule>
 	<!-- Regla para el comando "play" o "start" con semántica asociada -->
 	<rule id="playRule" scope="public">
-		<tag>out.action="play";</tag>
+		<tag>out.action="one";</tag>
 		<one-of>
 			<item>play</item>
 			<item>start</item>
@@ -21,7 +21,7 @@
 	</rule>
 	<!-- Regla para el comando "stop" o "end" con semántica asociada -->
 	<rule id="stopRule" scope="public">
-		<tag>out.action="stop";</tag>
+		<tag>out.action="two";</tag>
 		<one-of>
 			<item>stop</item>
 			<item>end</item>
