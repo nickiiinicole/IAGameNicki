@@ -3911,12 +3911,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76334149}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -261.4156, y: -7.8193045, z: -298.80313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 785555014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &76556454
 PrefabInstance:
@@ -33894,6 +33894,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 75f9838fda71f3e4b856da3eb156f8c4, type: 3}
   m_PrefabInstance: {fileID: 784447865}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &785555013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 785555014}
+  m_Layer: 0
+  m_Name: ------------MapObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &785555014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785555013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 261.4156, y: 7.8193045, z: 298.80313}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 76334152}
+  - {fileID: 1591811877}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &785747889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46874,8 +46907,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1106473949}
-  - component: {fileID: 1106473948}
   - component: {fileID: 1106473950}
+  - component: {fileID: 1106473951}
   m_Layer: 0
   m_Name: Voice Control
   m_TagString: Untagged
@@ -46883,18 +46916,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1106473948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106473946}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a72eec2af74e084d9a95d43ecf8c216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1106473949
 Transform:
   m_ObjectHideFlags: 0
@@ -46922,6 +46943,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9835b02346c60234480fdf8b082be56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1106473951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106473946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff407b355ad067498a215b14265642f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1571221298}
 --- !u!1001 &1107355347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65101,6 +65135,7 @@ MonoBehaviour:
   agent: {fileID: 1571221299}
   character: {fileID: 1571221294}
   health: 0
+  voiceMoveDistance: 5
   m_Animator: {fileID: 1802358917}
 --- !u!195 &1571221299
 NavMeshAgent:
@@ -65864,8 +65899,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591811876}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.38653085, z: 0, w: 0.9222765}
-  m_LocalPosition: {x: 262.11597, y: 6.006226, z: 330.88428}
+  m_LocalRotation: {x: -0, y: -0.38653085, z: -0, w: 0.9222765}
+  m_LocalPosition: {x: 0.7003784, y: -1.8130784, z: 32.081146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -67568,7 +67603,7 @@ Transform:
   - {fileID: 1963625534}
   - {fileID: 1459920665}
   - {fileID: 1413757486}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 785555014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1592620632
 PrefabInstance:
@@ -92718,9 +92753,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1298293877}
-  - {fileID: 1591811877}
-  - {fileID: 76334152}
   - {fileID: 1106473949}
   - {fileID: 1571221293}
   - {fileID: 1231039679}
   - {fileID: 2075226277}
+  - {fileID: 785555014}

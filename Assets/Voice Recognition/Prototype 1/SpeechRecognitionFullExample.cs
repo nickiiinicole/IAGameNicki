@@ -14,10 +14,10 @@ public class SpeechRecognitionFullExample : MonoBehaviour
     {
         // ------------------------ KeywordRecognizer ------------------------
         // Reconoce únicamente palabras clave predefinidas
-        string[] keywords = { "play", "stop", "pause", "avanzar", "hacia adelante", "vamos hacia adelante", "hacia atras", "vamos hacia atras" };
-        keywordRecognizer = new KeywordRecognizer(keywords);
-        keywordRecognizer.OnPhraseRecognized += OnKeywordRecognized;
-        keywordRecognizer.Start(); // Inicia la detección de palabras clave
+        //string[] keywords = { "play", "stop", "pause", "avanzar", "hacia adelante", "vamos hacia adelante", "hacia atras", "vamos hacia atras" };
+        //keywordRecognizer = new KeywordRecognizer(keywords);
+        //keywordRecognizer.OnPhraseRecognized += OnKeywordRecognized;
+        //keywordRecognizer.Start(); // Inicia la detección de palabras clave
     }
 
     // Callback del KeywordRecognizer
