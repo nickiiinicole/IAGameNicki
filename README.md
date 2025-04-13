@@ -44,4 +44,6 @@ Esto incluye decoración, coleccionables, sonidos y modelos de mejor calidad.
 - 🔹Integración de acciones más avanzadas: Planeo conectar los comandos reconocidos con acciones específicas del juego, como disparar o interactuar con objetos.
 - 🔹Asociar más comandos a otras acciones (abrir puertas, atacar, interactuar con objetos). Integrar animaciones al moverse por voz.
 - 🔹Hacer que el sistema reconozca frases más naturales y no solo palabras clave.
+
+  
 📌 **Este README se actualizará semanalmente con los avances del proyecto.** 🚀  
