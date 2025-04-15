@@ -74,16 +74,9 @@
  ---
  ### 📦 Gestión de Assets
  Me di cuenta de que los primeros paquetes de assets estaban incompletos.
- 
- ## 📌 Próximos Pasos  
- 🔹 Implementar el control del jugador mediante **reconocimiento de voz**.  
- 🔹 Crear una versión jugable del nivel con objetivos claros.  
- ---
  Descargué nuevos paquetes más completos y organizados para tener una mejor base visual.
- 
  Esto incluye decoración, coleccionables, sonidos y modelos de mejor calidad.
- 
- ### 📌 Próximos Pasos
+
  🔹 Conectar el sistema de reconocimiento de voz a comandos de juego completos (abrir puertas, atacar, interactuar, etc.).
  🔹 Terminar el mapa jugable con zonas bloqueadas/desbloqueables mediante llaves.
  🔹 Integrar animaciones más avanzadas para el jugador (caminar, correr, recibir daño).
