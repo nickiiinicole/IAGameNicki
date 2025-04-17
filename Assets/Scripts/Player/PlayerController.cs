@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     [Header("Componentes")]
     public NavMeshAgent agent; // Agente que se mueve por el NavMesh
     public ThirdPersonCharacter character; // Controlador de animaciones y movimiento
-
+    public GameObject bulletPrefab;
+    public Transform firePoint;
     [Header("Salud")]
     [SerializeField] private float health;
     [SerializeField] private float voiceMoveDistance = 5f;
@@ -64,6 +65,15 @@ public class PlayerController : MonoBehaviour
         {
             m_Animator.SetTrigger("isShooting");
             Debug.Log("Disparo activado por voz");
+            Shoot();
+        }
+    }
+
+    public void Shoot()
+    {
+        if (bulletPrefab != null && firePoint != null)
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
 
@@ -136,6 +146,5 @@ public class PlayerController : MonoBehaviour
             agent.SetDestination(position);
         }
     }
-
 
 }

@@ -1,17 +1,20 @@
 using UnityEngine;
-using UnityEngine.Windows.Speech;
+using UnityEngine.Windows.Speech; // Necesario para usar reconocimiento de voz
 using System.Collections.Generic;
 using System.Linq;
 
 public class VoiceCommandHandler : MonoBehaviour
 {
-    private KeywordRecognizer keywordRecognizer;
-    private Dictionary<string, System.Action> actions;
+    private KeywordRecognizer keywordRecognizer; // Componente que reconoce palabras clave habladas
+    private Dictionary<string, System.Action> actions; // Diccionario que asocia palabras clave a acciones
 
-    public PlayerController playerController;
+    public PlayerController playerController;  // Referencia al script que controla al jugador
+
 
     void Start()
     {
+        // Asociamos comandos de voz con funciones específicas
+
         actions = new Dictionary<string, System.Action>
         {
             { "play", StartMoving },
@@ -32,11 +35,14 @@ public class VoiceCommandHandler : MonoBehaviour
         keywordRecognizer.Start();
     }
 
+
     void OnKeywordRecognized(PhraseRecognizedEventArgs args)
     {
         Debug.Log("Keyword Recognized: " + args.text);
         actions[args.text]?.Invoke();
     }
+
+    // Función para ejecutar el disparo (activa animación en PlayerController)
     void Shoot()
     {
         if (playerController != null)

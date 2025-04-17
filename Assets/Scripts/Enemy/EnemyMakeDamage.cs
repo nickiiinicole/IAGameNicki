@@ -10,7 +10,7 @@ public class EnemyMakeDamage : MonoBehaviour
     private GameObject playerRef = null;
 
     [SerializeField] Animator m_Animator;
-
+    [SerializeField] private int health = 3;
     void Update()
     {
         if (playerInside)
@@ -36,6 +36,23 @@ public class EnemyMakeDamage : MonoBehaviour
                 playerController.TakeDamage(damageAmount);
             }
         }
+    }
+   
+
+    public void ReceiveDamage(int amount)
+    {
+        health -= amount;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("El enemigo ha muerto");
+        Destroy(gameObject); // O reproducir animación, efectos, etc.
     }
 
     private void OnTriggerEnter(Collider other)
