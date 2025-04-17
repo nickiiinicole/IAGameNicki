@@ -22,7 +22,9 @@ public class VoiceCommandHandler : MonoBehaviour
             { "hacia adelante", MoveForward },
             { "vamos hacia adelante", MoveForward },
             { "hacia atras", MoveBackward },
-            { "vamos hacia atras", MoveBackward }
+            { "vamos hacia atras", MoveBackward },
+            { "shoot", Shoot},
+            { "dispara", Shoot}
         };
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
@@ -34,6 +36,13 @@ public class VoiceCommandHandler : MonoBehaviour
     {
         Debug.Log("Keyword Recognized: " + args.text);
         actions[args.text]?.Invoke();
+    }
+    void Shoot()
+    {
+        if (playerController != null)
+        {
+            playerController.TriggerShootAnimation();
+        }
     }
 
     void StartMoving()

@@ -61,6 +61,8 @@
 		<tag>out.action="shoot";</tag>
 		<one-of>
 			<item>shoot</item>
+			<item>dispara</item>
+			<item>disparar</item>
 			<item>fire</item>
 			<item>attack</item>
 		</one-of>

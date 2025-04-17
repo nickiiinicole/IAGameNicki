@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
@@ -9,6 +10,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+
     [Header("Componentes")]
     public NavMeshAgent agent; // Agente que se mueve por el NavMesh
     public ThirdPersonCharacter character; // Controlador de animaciones y movimiento
@@ -50,6 +52,18 @@ public class PlayerController : MonoBehaviour
             health = 0;
             // TODO: Animación de muerte si la tienes
             m_Animator.SetTrigger("isHurting"); // Puedes cambiar esto por un trigger de muerte si lo tienes
+        }
+    }
+    // <summary>
+    // Activa la animación de disparo del player
+    // </summary>
+
+    public void TriggerShootAnimation()
+    {
+        if (m_Animator != null)
+        {
+            m_Animator.SetTrigger("isShooting");
+            Debug.Log("Disparo activado por voz");
         }
     }
 
@@ -122,5 +136,6 @@ public class PlayerController : MonoBehaviour
             agent.SetDestination(position);
         }
     }
+
 
 }
