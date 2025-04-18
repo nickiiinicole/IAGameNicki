@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletController : MonoBehaviour
 {
     public float speed = 20f;
     public int damage = 1;
     public float lifeTime = 2f;
+    public GameObject particlePrefab;
 
     void Start()
     {
@@ -16,14 +18,19 @@ public class BulletController : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collisionObject)
     {
-        if (other.CompareTag("Enemy"))
+        if (collisionObject.gameObject.tag == "Player")
         {
-            EnemyMakeDamage enemy = other.GetComponent<EnemyMakeDamage>();
-            if (enemy != null)
+            EnemyController enemyController = collisionObject.gameObject.GetComponent<EnemyController>();
+            if (enemyController != null)
             {
-                enemy.ReceiveDamage(damage); 
+                enemyController.TakeDamage(damage);
+            }
+
+            if (particlePrefab != null)
+            {
+                GameObject spawnedEffect = Instantiate(particlePrefab, gameObject.transform.position, gameObject.transform.rotation);
             }
 
             Destroy(gameObject); // Destruye la bala al impactar

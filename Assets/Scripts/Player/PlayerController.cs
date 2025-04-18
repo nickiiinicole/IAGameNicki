@@ -12,14 +12,15 @@ public class PlayerController : MonoBehaviour
 {
 
     [Header("Componentes")]
-    public NavMeshAgent agent; // Agente que se mueve por el NavMesh
+    public NavMeshAgent agent;
     public ThirdPersonCharacter character; // Controlador de animaciones y movimiento
     public GameObject bulletPrefab;
     public Transform firePoint;
     [Header("Salud")]
     [SerializeField] private float health;
+    [SerializeField] private int ammo;
     [SerializeField] private float voiceMoveDistance = 5f;
-    [SerializeField] Animator m_Animator;
+    [SerializeField] Animator animator;
 
     void Start()
     {
@@ -46,14 +47,15 @@ public class PlayerController : MonoBehaviour
     /// <param name="damageAmount">Cantidad de daño a aplicar</param>
     public void TakeDamage(float damageAmount)
     {
+        Debug.Log("TakeDamage llamado");
         health -= damageAmount;
 
         if (health <= 0)
         {
             health = 0;
-            // TODO: Animación de muerte si la tienes
-            m_Animator.SetTrigger("isHurting"); // Puedes cambiar esto por un trigger de muerte si lo tienes
+            animator.SetTrigger("deathTrigger");
         }
+        animator.SetTrigger("isHurting");
     }
     // <summary>
     // Activa la animación de disparo del player
@@ -61,9 +63,9 @@ public class PlayerController : MonoBehaviour
 
     public void TriggerShootAnimation()
     {
-        if (m_Animator != null)
+        if (animator != null)
         {
-            m_Animator.SetTrigger("isShooting");
+            animator.SetTrigger("isShooting");
             Debug.Log("Disparo activado por voz");
             Shoot();
         }
@@ -73,7 +75,11 @@ public class PlayerController : MonoBehaviour
     {
         if (bulletPrefab != null && firePoint != null)
         {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            if (ammo > 0)
+            {
+                ammo--;
+                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            }
         }
     }
 
