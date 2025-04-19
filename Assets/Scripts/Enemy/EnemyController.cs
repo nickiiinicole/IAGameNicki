@@ -35,7 +35,8 @@ public class EnemyController : MonoBehaviour
     {
         agent.SetDestination(PlayerTargert.position);
 
-        if (characterController == null) {
+        if (characterController == null)
+        {
             return;
         }
 
@@ -51,8 +52,9 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        if (isDead) { 
-            return; 
+        if (isDead)
+        {
+            return;
         }
 
         health -= damageAmount;
@@ -60,11 +62,11 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            animator.SetTrigger("dead"); // Puedes cambiar esto por un trigger de muerte si lo tienes
+            animator.SetTrigger("dead");
             isDead = true;
             return;
         }
 
-        animator.SetTrigger("isHurting"); // Puedes cambiar esto por un trigger de muerte si lo tienes
+        animator.SetTrigger("isHurting");
     }
 }

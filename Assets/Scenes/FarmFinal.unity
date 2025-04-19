@@ -21128,6 +21128,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9297b1049cbce5e40ae1a0312ee02eb3, type: 3}
   m_PrefabInstance: {fileID: 455390340}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &457419417 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19800000, guid: 424902fc7b529d547b638965298fb4f5, type: 3}
+  m_PrefabInstance: {fileID: 435459397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &457494044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27288,6 +27293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 625987068}
+  - component: {fileID: 625987069}
   m_Layer: 0
   m_Name: Ammo Spawner
   m_TagString: Untagged
@@ -27310,6 +27316,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 255193517}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &625987069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625987067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12365e9e7ab9d7c4e86840471d5a1d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoAmount: 5
+  pickupEffect: {fileID: 457419417}
 --- !u!1001 &627501222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64592,6 +64612,9 @@ MonoBehaviour:
   ammo: 5
   voiceMoveDistance: 5
   animator: {fileID: 1802358917}
+  keyNames: []
+  maxHealth: 100
+  currentAmmo: 10
 --- !u!195 &1571221299
 NavMeshAgent:
   m_ObjectHideFlags: 0

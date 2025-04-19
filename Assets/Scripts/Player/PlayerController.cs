@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,6 +22,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int ammo;
     [SerializeField] private float voiceMoveDistance = 5f;
     [SerializeField] Animator animator;
+    public List<string> keyNames = new List<string>();
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private int currentAmmo = 10;
+
 
     void Start()
     {
@@ -152,5 +157,29 @@ public class PlayerController : MonoBehaviour
             agent.SetDestination(position);
         }
     }
+    /// <summary>
+    /// Recolectar llave.
+    /// </summary>
+    /// <param name="keyName"></param>
 
+    public void CollectKey(string keyName)
+    {
+        if (!keyNames.Contains(keyName))
+        {
+            keyNames.Add(keyName);
+            Debug.Log("Llave obtenida: " + keyName);
+        }
+    }
+
+
+    public void GainHealth(int amount)
+    {
+        health = Mathf.Min(maxHealth, health + amount);
+    }
+
+    public void AddAmmo(int amount)
+    {
+        currentAmmo += amount;
+       
+    }
 }
