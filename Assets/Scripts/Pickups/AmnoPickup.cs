@@ -15,7 +15,10 @@ public class AmmoPickup : MonoBehaviour
                 pc.AddAmmo(ammoAmount);
 
                 if (pickupEffect != null)
+                {
                     Instantiate(pickupEffect, transform.position, Quaternion.identity);
+                  
+                }
 
                 Destroy(gameObject);
             }

@@ -175,11 +175,12 @@ public class PlayerController : MonoBehaviour
     public void GainHealth(int amount)
     {
         health = Mathf.Min(maxHealth, health + amount);
+        Debug.Log("Salud aumentada. Salud actual: " + health);
     }
 
     public void AddAmmo(int amount)
     {
         currentAmmo += amount;
-       
+        Debug.Log("Munición añadida. Total actual: " + currentAmmo);
     }
 }
