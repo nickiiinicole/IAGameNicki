@@ -77,7 +77,13 @@ Esta semana avancé principalmente con **la integración de comandos de voz**, e
 - Se creó un `PickupSpawner.cs` que:
   - Instancia un pickup aleatorio de un array (`pickupPrefabs`) cada cierto tiempo (`spawnInterval`).
   - Utiliza puntos de spawn definidos con `Transform[]`.
-
+  - 
+### 🔹 Spawner de Pickups
+- Implementé `PickupSpawner.cs`, que:
+  - Instancia pickups aleatorios cada cierto tiempo (`timeWindow`).
+  - Usa una estructura `SpawnPointWithStatus` para evitar que se repitan puntos ocupados.
+  - Marca los puntos como “libres” cuando el jugador recoge el ítem.
+  - Mejora la aleatoriedad usando `System.Random` para evitar repeticiones consecutivas.
 ---
 ## ⚙️ Pendientes y Observaciones
 
