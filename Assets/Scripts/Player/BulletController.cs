@@ -13,8 +13,9 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject, lifeTime); // Se destruye sola si no impacta
     }
 
-    void Update()
+    void FixUpdate()
     {
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 

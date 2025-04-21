@@ -1,10 +1,22 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+
+[Serializable]
+public class SpawnPointWithStatus
+{
+    public Transform point;
+    public bool used = false;
+}
 
 public class PickupSpawner : MonoBehaviour
 {
     public GameObject[] pickupPrefabs;
-    public Transform[] spawnPoints;
+    [Header("Puntos de aparición")]
+    public SpawnPointWithStatus[] spawnPoints;
     public float timeWindow = 10f;
+
+    private System.Random rng = new System.Random();
 
     void Start()
     {
@@ -13,9 +25,23 @@ public class PickupSpawner : MonoBehaviour
 
     void SpawnPickup()
     {
-        GameObject prefab = pickupPrefabs[Random.Range(0, pickupPrefabs.Length)];
-        Transform point = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        GameObject prefab = pickupPrefabs[rng.Next(0, pickupPrefabs.Length)];
+        int randomPointIndex = rng.Next(0, spawnPoints.Length);
+        SpawnPointWithStatus temporalRandomSpawnPoint = spawnPoints[randomPointIndex];
 
-        Instantiate(prefab, point.position, Quaternion.identity);
+        if (!temporalRandomSpawnPoint.used)
+        {
+            Transform point = temporalRandomSpawnPoint.point;
+            GameObject temporalNewObject = Instantiate(prefab, point.position, Quaternion.identity);
+            temporalRandomSpawnPoint.used = true;
+            PickupSpawnerHelper helper = temporalNewObject.AddComponent<PickupSpawnerHelper>();
+            helper.spawner = this;
+            helper.arrayPosition = randomPointIndex;
+        }
+    }
+
+    public void NotifyPickUp(int arrayPosition)
+    {
+        spawnPoints[arrayPosition].used = false;
     }
 }
