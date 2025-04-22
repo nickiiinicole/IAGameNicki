@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
 {
-    public int healAmount = 20;
+    public int healAmount = 15;
     public ParticleSystem pickupEffect;
     public bool rotate = true;
     public float rotationSpeed = 0.5f;
