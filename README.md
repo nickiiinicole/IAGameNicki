@@ -11,8 +11,8 @@ Cada semana, publico un **devlog detallado** con avances :) :
 
 - 📘 [Semana 1 - Setup inicial y primeras ideas](Devlogs/semana-1.md)
 - 📘 [Semana 2 - Reconocimiento de voz y mapa](Devlogs/semana-2.md)
-- 📘 [Semana 3 - En progreso](Devlogs/semana-3.md)
-- 📘 Semana 4 - *(Próximamente)*
+- 📘 [Semana 3 - Reconomiento voz, Enemigos, PickUps](Devlogs/semana-3.md)
+- 📘 [Semana 4 - *En PROCESO*](Devlogs/semana-4.md)
 
 ---
 
