@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Devlog Semana 4 (Actualización)
+=======
+# 🧟‍♂️ Farm Escape - Devlog Semana 4
+>>>>>>> 6851f4cc6aaf10946c1f6f89c75cee14e2ad888a
 
 ### 🗝️ Sistema de Llaves
 
