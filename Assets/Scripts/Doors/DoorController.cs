@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class DoorController : MonoBehaviour
 {
     public string keyRequired;
-    // creo una animacion para abriiir la puerta???
     public Animator animator;
     private bool isOpen = false;
 
@@ -29,7 +28,7 @@ public class DoorController : MonoBehaviour
             animator.SetTrigger("open");
         }
 
-        // Opcional: desactivar colisión o NavMeshObstacle si quieres que pasen NPCs también
+        // Opcional----> desactivar colisión o NavMeshObstacle si quieres que pasen NPCs también
         Collider col = GetComponent<Collider>();
         if (col != null)
         {
