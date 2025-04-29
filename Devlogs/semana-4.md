@@ -1,6 +1,4 @@
 
-## Devlog Semana 4 (Actualización)
-=======
 # 🧟‍♂️ Farm Escape - Devlog Semana 4
 
 ### 🗝️ Sistema de Llaves
