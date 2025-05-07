@@ -9,7 +9,7 @@ public class LoadingManager : MonoBehaviour
         StartCoroutine(LoadGameAsync());
     }
 
-       // declara una corutina , que se usara para cargar la escena en 2do plano sin congelar el juego
+    // declara una corutina , que se usara para cargar la escena en 2do plano sin congelar el juego
     IEnumerator LoadGameAsync()
     {
         //aqui espera 1 segundo antes de continuar 
@@ -23,4 +23,5 @@ public class LoadingManager : MonoBehaviour
             yield return null; // aca espera al siguiente frame y vuelve a comprobar
         }
     }
+  
 }
