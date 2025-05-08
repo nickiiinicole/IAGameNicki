@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b164466825b7641a654b3fb2d1ea07, type: 3}
   m_Name: ResourceGenerationController
   m_EditorClassIdentifier: 
-  profile: {fileID: 0}
+  profile: {fileID: 11400000, guid: 80a3ed78e40dee147a5e14cd66a5095b, type: 2}
   containerFoldoutValue_General: 0
   containerFoldoutValue_UGUI: 1
   containerFoldoutValue_UIT: 0
