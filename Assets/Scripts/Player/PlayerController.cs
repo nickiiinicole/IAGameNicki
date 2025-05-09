@@ -5,51 +5,51 @@ using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 /// <summary>
-/// Controlador del jugador que usa NavMeshAgent para navegar
-/// y ThirdPersonCharacter para animaciones y movimiento fluido.
-/// Ahora incluye funciones públicas para ser controlado por comandos de voz.
+/// Este script controla al jugador usando un NavMeshAgent para navegación
+/// y ThirdPersonCharacter para animaciones suaves.
+/// Incluye funciones que pueden ser llamadas por comandos de voz o sistemas externos.
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-
     [Header("Componentes")]
-    public NavMeshAgent agent;
-    public ThirdPersonCharacter character; // Controlador de animaciones y movimiento
-    public GameObject bulletPrefab;
+    public NavMeshAgent agent; 
+    public ThirdPersonCharacter character; 
+    public GameObject bulletPrefab; 
     public Transform firePoint;
     [Header("Salud")]
-    [SerializeField] private float health;
-    [SerializeField] private int ammo;
+    [SerializeField] private float health; 
+    [SerializeField] private int ammo; 
     [SerializeField] private float voiceMoveDistance = 5f;
-    [SerializeField] Animator animator;
-    public List<string> keyNames = new List<string>();
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private int currentAmmo = 10;
+    [SerializeField] Animator animator; 
 
+    public List<string> keyNames = new List<string>(); 
+    [SerializeField] private float maxHealth = 100f; 
+    [SerializeField] private int currentAmmo = 10; 
 
     void Start()
     {
-        // Importante para evitar que el NavMesh gire automáticamente (lo controla el personaje)
+        // Evita que el agente gire automáticamente (lo maneja el personaje con animaciones)
         agent.updateRotation = false;
     }
 
     void Update()
     {
-        // Movimiento automático hacia el destino asignado por el agente
+        // Si el agente tiene una ruta y aún no ha llegado al destino
         if (agent.remainingDistance > agent.stoppingDistance)
         {
             character.Move(agent.desiredVelocity, false, false);
         }
         else
         {
+            // Si llegó al destino, lo detenemos
             character.Move(Vector3.zero, false, false);
         }
     }
 
     /// <summary>
-    /// Lógica de daño al jugador.
+    /// Llama a esta función cuando el jugador reciba daño.
+    /// Disminuye la salud y activa la animación correspondiente.
     /// </summary>
-    /// <param name="damageAmount">Cantidad de daño a aplicar</param>
     public void TakeDamage(float damageAmount)
     {
         Debug.Log("TakeDamage llamado");
@@ -58,14 +58,15 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            animator.SetTrigger("deathTrigger");
+            animator.SetTrigger("deathTrigger"); // Activa animación de muerte
         }
-        animator.SetTrigger("isHurting");
-    }
-    // <summary>
-    // Activa la animación de disparo del player
-    // </summary>
 
+        animator.SetTrigger("isHurting"); // Activa animación de daño
+    }
+
+    /// <summary>
+    /// Activa animación de disparo y crea la bala.
+    /// </summary>
     public void TriggerShootAnimation()
     {
         if (animator != null)
@@ -76,6 +77,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Dispara una bala si hay munición disponible.
+    /// </summary>
     public void Shoot()
     {
         if (bulletPrefab != null && firePoint != null)
@@ -89,10 +93,8 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Mueve al jugador hacia una posición objetivo.
-    /// Esta función puede llamarse desde comandos de voz o cualquier otro sistema externo.
+    /// Mueve al jugador hacia una posición indicada.
     /// </summary>
-    /// <param name="target">Transform que representa el punto al que se moverá</param>
     public void MoveToPosition(Transform target)
     {
         if (agent != null && target != null)
@@ -102,20 +104,19 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Detiene completamente el movimiento del jugador.
-    /// Ideal para el comando de voz "stop".
+    /// Detiene el movimiento actual del jugador.
     /// </summary>
     public void Stop()
     {
         if (agent != null)
         {
-            agent.ResetPath(); // Borra el destino actual
-            agent.velocity = Vector3.zero; // Detiene el movimiento
+            agent.ResetPath();
+            agent.velocity = Vector3.zero;
         }
     }
+
     /// <summary>
-    /// Mueve al jugador hacia adelante una distancia predeterminada desde su posición actual.
-    /// Ideal para comandos de voz como "avanzar" o "play".
+    /// Mueve al jugador hacia adelante una distancia definida.
     /// </summary>
     public void MoveForward()
     {
@@ -124,8 +125,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Mueve al jugador hacia atrás una distancia predeterminada desde su posición actual.
-    /// Ideal para comandos como "atrás" o "retroceder".
+    /// Mueve al jugador hacia atrás una distancia definida.
     /// </summary>
     public void MoveBackward()
     {
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Detiene al jugador inmediatamente.
+    /// Detiene cualquier movimiento en curso.
     /// </summary>
     public void StopMovement()
     {
@@ -143,13 +143,16 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Puede usarse para reanudar movimiento o como sinónimo de "play".
-    /// Aquí lo tratamos como un alias de MoveForward().
+    /// Alias de MoveForward. Puede usarse como “reanudar movimiento”.
     /// </summary>
     public void StartMoving()
     {
-        MoveForward(); // Puedes reemplazar por una lógica diferente si quieres
+        MoveForward();
     }
+
+    /// <summary>
+    /// Mueve al jugador a una posición específica en el mundo.
+    /// </summary>
     public void MoveTo(Vector3 position)
     {
         if (agent != null && agent.isOnNavMesh)
@@ -157,11 +160,10 @@ public class PlayerController : MonoBehaviour
             agent.SetDestination(position);
         }
     }
-    /// <summary>
-    /// Recolectar llave.
-    /// </summary>
-    /// <param name="keyName"></param>
 
+    /// <summary>
+    /// Añade una llave al inventario si aún no la tiene.
+    /// </summary>
     public void CollectKey(string keyName)
     {
         if (!keyNames.Contains(keyName))
@@ -171,13 +173,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Añade salud al jugador, sin pasar el máximo.
+    /// </summary>
     public void GainHealth(int amount)
     {
         health = Mathf.Min(maxHealth, health + amount);
         Debug.Log("Salud aumentada. Salud actual: " + health);
     }
 
+    /// <summary>
+    /// Añade munición al total disponible.
+    /// </summary>
     public void AddAmmo(int amount)
     {
         currentAmmo += amount;

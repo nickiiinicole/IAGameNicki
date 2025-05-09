@@ -22,6 +22,7 @@
 		<tag>out.action="start";</tag>
 		<one-of>
 			<item>play</item>
+			<item>comenzar</item>
 			<item>start</item>
 		
 		</one-of>
@@ -30,6 +31,7 @@
 	<rule id="stopRule" scope="public">
 		<tag>out.action="stop";</tag>
 		<one-of>
+			<item>para</item>
 			<item>stop</item>
 			<item>end</item>
 		</one-of>

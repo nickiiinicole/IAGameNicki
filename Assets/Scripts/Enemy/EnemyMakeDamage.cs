@@ -27,7 +27,7 @@ public class EnemyMakeDamage : MonoBehaviour
 
     private void DamagePlayer()
     {
-        //Debug.Log($"Jugador dañado por {damageAmount} punto(s) de daño");
+        Debug.Log($"Jugador dañado por {damageAmount} punto(s) de daño");
         m_Animator.SetTrigger("isAttacking");
 
         if (playerRef != null) {

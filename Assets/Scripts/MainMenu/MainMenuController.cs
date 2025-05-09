@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject optionsPanel;
+
     public void PlayGame()
     {
         //SceneManager.LoadScene("FarmFinal"); 
@@ -11,7 +13,8 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenOptions()
     {
-        Debug.Log("Opciones todavía no implementadas.");
+        optionsPanel.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 
     public void QuitGame()

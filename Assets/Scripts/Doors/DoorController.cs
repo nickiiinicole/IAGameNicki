@@ -67,7 +67,7 @@ public class DoorController : MonoBehaviour
         //    animator.SetTrigger("open");
         //}
 
-        // Opcional----> desactivar colisión o NavMeshObstacle si quieres que pasen NPCs también
+        // Opcional----> desactivar colisión o NavMeshObstacle si quieres que pasenlos enemigos
         // Collider col = GetComponent<Collider>();
         // if (col != null)
         // {
