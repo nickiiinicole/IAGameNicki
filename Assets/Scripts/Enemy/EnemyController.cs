@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
         if (playerObject != null)
         {
-            Debug.Log("Jugador encontrado: " + playerObject.name);
+            //Debug.Log("Jugador encontrado: " + playerObject.name);
             PlayerTargert = playerObject.transform;
         }
         else

@@ -18,7 +18,11 @@ public class KeyPickup : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            //hago contains??
+            if (other.tag.ToLower() != "player")
+            {
+                return;
+            }
+
             if (!player.keyNames.Contains(keyName))
             {
                 player.CollectKey(keyName);
