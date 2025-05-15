@@ -3,25 +3,44 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public GameObject optionsPanel;
-    
-    public void PlayGame()
+    public GameObject startPanel;
+    public GameObject winPanel;
+    public GameObject lostPanel;
+    public PlayerController playerController;
+
+    public void Start()
     {
-        //SceneManager.LoadScene("FarmFinal"); 
-        //SceneLoader.LoadScene("FarmFinal");
-       
-        this.gameObject.SetActive(false);
+        startPanel.SetActive(true);
+        winPanel.SetActive(false);
+        lostPanel.SetActive(false);
     }
 
-    public void OpenOptions()
+    public void PlayGame()
     {
-        optionsPanel.SetActive(true);
-        this.gameObject.SetActive(false);
+        startPanel.SetActive(false);
+        playerController.playerInControl = true;
+    }
+
+    public void LostGame()
+    {
+        playerController.playerInControl = false;
+        Invoke("ShowLostPanelWithTimer", 3.0f);
+    }
+
+    public void WinGame()
+    {
+        winPanel.SetActive(true);
+        playerController.playerInControl = false;
     }
 
     public void QuitGame()
     {
         Debug.Log("Saliendo del juego...");
         Application.Quit();
+    }
+
+    void ShowLostPanelWithTimer()
+    {
+        lostPanel.SetActive(true);
     }
 }

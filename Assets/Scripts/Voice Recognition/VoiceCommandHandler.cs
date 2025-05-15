@@ -7,9 +7,7 @@ public class VoiceCommandHandler : MonoBehaviour
 {
     private KeywordRecognizer keywordRecognizer; // Componente que reconoce palabras clave habladas
     private Dictionary<string, System.Action> actions; // Diccionario que asocia palabras clave a acciones
-
     public PlayerController playerController;  // Referencia al script que controla al jugador
-
 
     void Start()
     {

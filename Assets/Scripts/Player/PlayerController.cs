@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -24,7 +26,11 @@ public class PlayerController : MonoBehaviour
 
     public List<string> keyNames = new List<string>(); 
     [SerializeField] private float maxHealth = 100f; 
-    [SerializeField] private int currentAmmo = 10; 
+    [SerializeField] private int currentAmmo = 10;
+
+    public MainMenuController mainMenuController;
+    public bool playerInControl = false;
+
 
     void Start()
     {
@@ -59,10 +65,12 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
             animator.SetTrigger("deathTrigger"); // Activa animación de muerte
+            mainMenuController.LostGame();
         }
-
         animator.SetTrigger("isHurting"); // Activa animación de daño
     }
+
+
 
     /// <summary>
     /// Activa animación de disparo y crea la bala.
