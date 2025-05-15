@@ -1,7 +1,7 @@
 # 🧠 Farm Escape - Proyecto Final .NET
 
 ¡Bienvenid@ al desarrollo de **Farm Escape** :D!  
-🎮 Un juego de supervivencia con estilo *low poly*, donde exploras una granja abandonada y escapas usando tu **voz** guaindo a tu personaje.
+🎮 Un juego de supervivencia con estilo *low poly*, donde exploras una granja abandonada y escapas usando tu **voz** guiando a tu personaje.
 ---
 
 ## 📅 Reportes Semanales
@@ -13,7 +13,8 @@ Cada semana, publico un **devlog detallado** con avances :) :
 - 📘 [Semana 2 - Reconocimiento de voz y mapa](Devlogs/semana-2.md)
 - 📘 [Semana 3 - Reconomiento voz, Enemigos, PickUps](Devlogs/semana-3.md)
 - 📘 [Semana 4 - Sistema de llaves, Controlador de puertas, Integración de Prefabs](Devlogs/semana-4.md)
-- 📘 [Semana 5 - *EN PROCESO*](Devlogs/semana-5.md)
+- 📘 [Semana 5 - Ajustes, Mejoras puertas, items...](Devlogs/semana-5.md)
+- 📘 [Semana 6 - *En Proceso*](Devlogs/semana-6.md)
 ---
 
 ## 🎮 Mecánicas Principales
