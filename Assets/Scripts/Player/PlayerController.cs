@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public MainMenuController mainMenuController;
     public bool playerInControl = false;
+    public float playerRotationStep = 20.0f;
 
 
     void Start()
@@ -40,26 +41,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Si el agente tiene una ruta y aún no ha llegado al destino
-        if (agent.remainingDistance > agent.stoppingDistance)
+
+        if (agent.velocity.sqrMagnitude > 0.1f)
         {
-            character.Move(agent.desiredVelocity, false, false);
+          //  Debug.Log("El agente se está moviendo.");
         }
         else
         {
-            // Si llegó al destino, lo detenemos
-            character.Move(Vector3.zero, false, false);
+           // Debug.Log("El agente está quieto.");
         }
+
+        animator.SetFloat("velocity", agent.velocity.sqrMagnitude);
     }
 
     /// <summary>
     /// Llama a esta función cuando el jugador reciba daño.
     /// Disminuye la salud y activa la animación correspondiente.
     /// </summary>
-    public void TakeDamage(float damageAmount)
+    /// 
+    
+    public float dameToApply = 0;
+    public void SetDamageToApply(float damageAmount)
     {
-        Debug.Log("TakeDamage llamado");
-        health -= damageAmount;
+        Debug.Log("SestDamageToApply llamado");
+        dameToApply = damageAmount;
+    }
+
+    public void ApplyDamage()
+    {
+        if (health <= 0) {
+            return;
+        }
+
+        health -= dameToApply;
 
         if (health <= 0)
         {
@@ -67,11 +81,34 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("deathTrigger"); // Activa animación de muerte
             mainMenuController.LostGame();
         }
-        animator.SetTrigger("isHurting"); // Activa animación de daño
+        else {
+            animator.SetTrigger("isHurting"); // Activa animación de daño
+        }
     }
 
+    
+    public void TurnPlayerLeft() {
+        Vector3 eul = transform.eulerAngles;
 
+        // Elimina los decimales redondeando al entero más cercano
+        eul.y = Mathf.RoundToInt(eul.y);
 
+        // Suma playerRotationStep grados y aplica la rotación
+        eul.y += playerRotationStep;
+        transform.rotation = Quaternion.Euler(eul);
+    }
+
+    public void TurnPlayerRight()
+    {
+        Vector3 eul = transform.eulerAngles;
+
+        // Elimina los decimales redondeando al entero más cercano
+        eul.y = Mathf.RoundToInt(eul.y);
+
+        // Suma playerRotationStep grados y aplica la rotación
+        eul.y -= playerRotationStep;
+        transform.rotation = Quaternion.Euler(eul);
+    }
     /// <summary>
     /// Activa animación de disparo y crea la bala.
     /// </summary>

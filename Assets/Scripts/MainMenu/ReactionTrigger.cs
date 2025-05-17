@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WinTrigger : MonoBehaviour
+public class ReactionTrigger : MonoBehaviour
 {
-    [Header("Evento que se ejecuta al ganar")]
+    [Header("Eventos que se ejecuta al paso del player")]
     public UnityEvent onWin;
 
     private void OnTriggerEnter(Collider other)

@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windowTime: 2
-  damageAmount: 1
+  damageAmount: 10
   m_Animator: {fileID: 4568969149299385737}
   health: 3
 --- !u!65 &5287539825746330793
@@ -1803,6 +1803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147601810992062410}
   - component: {fileID: 4568969149299385737}
+  - component: {fileID: 5108041372798717452}
   m_Layer: 0
   m_Name: (P) Characters_Zombie_Pacient_04
   m_TagString: Untagged
@@ -1848,6 +1849,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5108041372798717452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778317186556139583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4951ade20048d4ba856cdd2b6a9402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMakeDamage: {fileID: 8122460682350694105}
 --- !u!1 &7860518071806939331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1910,7 @@ GameObject:
   - component: {fileID: 2254819512676511169}
   m_Layer: 0
   m_Name: EnemyBaseB
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1909,14 +1923,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8053287864119952020}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.2588186, z: -0, w: 0.965926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 245.4089, y: 6.5855737, z: 290.18134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2959086808549811392}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &9194185939807347491
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1953,7 +1967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 9194185939807347491}
   characterController: {fileID: 2254819512676511169}
-  PlayerTargert: {fileID: 0}
+  PlayerTargert: {fileID: 3535457773571120871}
   health: 100
   animator: {fileID: 4568969149299385737}
   isDead: 0

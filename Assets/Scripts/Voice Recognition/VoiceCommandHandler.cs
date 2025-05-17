@@ -14,51 +14,69 @@ public class VoiceCommandHandler : MonoBehaviour
     {
         // Asociamos comandos de voz con funciones específicas
 
-        actions = new Dictionary<string, System.Action>
-{
-    // Movimiento hacia adelante
-    { "avanzar", MoveForward },
-    { "hacia adelante", MoveForward },
-    { "vamos hacia adelante", MoveForward },
-    { "sigue adelante", MoveForward },
-    { "adelante", MoveForward },
-    { "go forward", MoveForward },
-    { "move forward", MoveForward },
-    { "keep going", MoveForward },
-    { "forward", MoveForward },
-    { "keep moving", MoveForward },
-    { "continue forward", MoveForward },
+    actions = new Dictionary<string, System.Action>
+    {
+        // Movimiento hacia adelante
+        { "avanzar", MoveForward },
+        { "hacia adelante", MoveForward },
+        { "vamos hacia adelante", MoveForward },
+        { "sigue adelante", MoveForward },
+        { "adelante", MoveForward },
+        { "go forward", MoveForward },
+        { "move forward", MoveForward },
+        { "keep going", MoveForward },
+        { "forward", MoveForward },
+        { "keep moving", MoveForward },
+        { "continue forward", MoveForward },
 
-    // Movimiento hacia atrás
-    { "hacia atras", MoveBackward },
-    { "vamos hacia atras", MoveBackward },
-    { "atrás", MoveBackward },
-    { "sigue hacia atras", MoveBackward },
-    { "go back", MoveBackward },
-    { "move back", MoveBackward },
-    { "move backward", MoveBackward },
-    { "backward", MoveBackward },
-    { "back", MoveBackward },
+        // Movimiento hacia atrás
+        { "hacia atras", MoveBackward },
+        { "vamos hacia atras", MoveBackward },
+        { "atrás", MoveBackward },
+        { "sigue hacia atras", MoveBackward },
+        { "go back", MoveBackward },
+        { "move back", MoveBackward },
+        { "move backward", MoveBackward },
+        { "backward", MoveBackward },
+        { "back", MoveBackward },
 
-    // Disparo
-    { "shoot", Shoot },
-    { "dispara", Shoot },
-    { "fire", Shoot },
+        // Disparo
+        { "shoot", Shoot },
+        { "dispara", Shoot },
+        { "fire", Shoot },
 
-    // Iniciar
-    { "play", StartMoving },
-    { "start", StartMoving },
-    { "comenzar", StartMoving },
-    { "iniciar", StartMoving },
+        // Iniciar
+        { "play", StartMoving },
+        { "start", StartMoving },
+        { "comenzar", StartMoving },
+        { "iniciar", StartMoving },
 
-    // Detener
-    { "stop", StopMoving },
-    { "pause", StopMoving },
-    { "detente", StopMoving },
-    { "pausar", StopMoving },
-    { "alto", StopMoving },
-    { "parar", StopMoving }
-};
+        // Detener
+        { "stop", StopMoving },
+        { "pause", StopMoving },
+        { "detente", StopMoving },
+        { "pausar", StopMoving },
+        { "alto", StopMoving },
+        { "parar", StopMoving },
+
+        // Girar a la izquierda
+        { "gira a la izquierda", TurnLeft },
+        { "girar a la izquierda", TurnLeft },
+        { "izquierda", TurnLeft },
+        { "dobla a la izquierda", TurnLeft },
+        { "vuelta a la izquierda", TurnLeft },
+        { "hacia la izquierda", TurnLeft },
+        { "turn left", TurnLeft },
+
+        // Girar a la derecha
+        { "gira a la derecha", TurnRight },
+        { "girar a la derecha", TurnRight },
+        { "derecha", TurnRight },
+        { "dobla a la derecha", TurnRight },
+        { "vuelta a la derecha", TurnRight },
+        { "hacia la derecha", TurnRight },
+        { "turn right", TurnRight }
+    };
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordRecognized;
@@ -70,6 +88,21 @@ public class VoiceCommandHandler : MonoBehaviour
     {
         Debug.Log("Keyword Recognized: " + args.text);
         actions[args.text]?.Invoke();
+    }
+
+    void TurnLeft()
+    {
+        if (playerController != null)
+        {
+            playerController.TurnPlayerLeft();
+        }
+    }
+
+    void TurnRight() {
+        if (playerController != null)
+        {
+            playerController.TurnPlayerRight();
+        }
     }
 
     // Función para ejecutar el disparo (activa animación en PlayerController)

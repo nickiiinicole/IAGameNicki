@@ -11,6 +11,14 @@ public class EnemyMakeDamage : MonoBehaviour
 
     [SerializeField] Animator m_Animator;
     [SerializeField] private int health = 3;
+    PlayerController playerController;
+
+    private void Start()
+    {
+        playerRef = GameObject.FindWithTag("Player");
+        playerController = playerRef.GetComponent<PlayerController>();
+    }
+
     void Update()
     {
         if (playerInside)
@@ -31,13 +39,16 @@ public class EnemyMakeDamage : MonoBehaviour
         m_Animator.SetTrigger("isAttacking");
 
         if (playerRef != null) {
-            PlayerController playerController = playerRef.GetComponent<PlayerController>();
+            
             if (playerController != null) {
-                playerController.TakeDamage(damageAmount);
+                playerController.SetDamageToApply(damageAmount);
             }
         }
     }
-   
+
+    public void ApplyPlayerDamage() {
+        playerController.ApplyDamage();
+    }
 
     public void ReceiveDamage(int amount)
     {

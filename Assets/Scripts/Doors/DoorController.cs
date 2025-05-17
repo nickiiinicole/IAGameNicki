@@ -58,12 +58,10 @@ public class DoorController : MonoBehaviour
         }
         if (player != null && player.keyNames.Contains(keyRequired) && !isOpen)
         {
-            print("4");
             OpenDoor();
         }
         else if (player != null && !player.keyNames.Contains(keyRequired))
         {
-            print("5");
             Debug.Log("Te falta la llave: " + keyRequired);
         }
     }

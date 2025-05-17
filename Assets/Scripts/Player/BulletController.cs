@@ -13,7 +13,7 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject, lifeTime); // Se destruye sola si no impacta
     }
 
-    void FixUpdate()
+    void FixedUpdate()
     {
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -21,7 +21,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collisionObject)
     {
-        if (collisionObject.gameObject.tag == "Player")
+        if (collisionObject.gameObject.tag == "Enemy")
         {
             EnemyController enemyController = collisionObject.gameObject.GetComponent<EnemyController>();
             if (enemyController != null)
