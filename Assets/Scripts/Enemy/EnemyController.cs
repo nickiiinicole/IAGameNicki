@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
@@ -58,12 +59,14 @@ public class EnemyController : MonoBehaviour
         }
 
         health -= damageAmount;
+        Debug.Log("Daño a enemigo, restante"+ health);
 
         if (health <= 0)
         {
             health = 0;
             animator.SetTrigger("dead");
             isDead = true;
+            Destroy(gameObject,5);
             return;
         }
 

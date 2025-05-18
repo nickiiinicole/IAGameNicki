@@ -7,6 +7,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject winPanel;
     public GameObject lostPanel;
     public PlayerController playerController;
+    public string gameLevelName = "FarmFinal";
 
     public void Start()
     {
@@ -43,4 +44,12 @@ public class MainMenuController : MonoBehaviour
     {
         lostPanel.SetActive(true);
     }
+
+    public void RestartLevel() {
+        if (Application.CanStreamedLevelBeLoaded(gameLevelName))
+        {
+            SceneManager.LoadScene(gameLevelName);
+        }
+    }
+
 }
