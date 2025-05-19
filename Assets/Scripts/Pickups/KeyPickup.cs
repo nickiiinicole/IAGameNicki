@@ -30,11 +30,11 @@ public class KeyPickup : MonoBehaviour
                 {
                     Instantiate(pickupEffect, transform.position, Quaternion.identity);
                 }
-                if (audioSource)
+                if (audioSource != null && audioSource.clip != null)
                 {
-                    audioSource.Play();
+                    AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
                 }
-
+              
                 Destroy(gameObject);
             }
         }

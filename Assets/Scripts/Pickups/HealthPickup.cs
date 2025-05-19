@@ -7,29 +7,45 @@ public class HealthPickup : MonoBehaviour
     public bool rotate = true;
     public float rotationSpeed = 0.5f;
     public AudioSource audioSource;
+
+    private PickupSpawnerHelper helper;
+
+    void Start()
+    {
+        helper = GetComponent<PickupSpawnerHelper>();
+    }
+
     void Update()
     {
         if (rotate)
             transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
     }
 
-    private void OnTriggerEnter(Collider objectCollider)
+    private void OnTriggerEnter(Collider other)
     {
-        if (objectCollider.tag == "Player")
+        if (other.gameObject.tag =="Player")
         {
-            PlayerController pc = objectCollider.GetComponent<PlayerController>();
+            PlayerController pc = other.GetComponent<PlayerController>();
+            if (pc == null)
+            {
+                pc = other.GetComponentInParent<PlayerController>(); // por si está en un hijo
+            }
+
             if (pc != null)
             {
                 pc.GainHealth(healAmount);
 
                 if (pickupEffect != null)
-                { 
-                    Instantiate(pickupEffect, transform.position, Quaternion.identity); 
+                    Instantiate(pickupEffect, transform.position, Quaternion.identity);
+
+                if (audioSource != null && audioSource.clip != null)
+                {
+                    AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
                 }
 
-                if (audioSource)
+                if (helper != null && helper.spawner != null)
                 {
-                    audioSource.Play();
+                    helper.spawner.NotifyPickUp(helper.arrayPosition);
                 }
 
                 Destroy(gameObject);

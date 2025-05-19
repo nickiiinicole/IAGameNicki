@@ -20,11 +20,17 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    [Header("Sonidos")]
+    public AudioClip hurtSound;
+    public AudioClip noAmmoSound;
+    public AudioClip shootSound; 
+
     [Header("Salud")]
     [SerializeField] private float health;
     [SerializeField] private int ammo;
     [SerializeField] private float voiceMoveDistance = 5f;
     [SerializeField] Animator animator;
+
 
     public List<string> keyNames = new List<string>();
     [SerializeField] private float maxHealth = 100f;
@@ -46,14 +52,17 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 currentTarget;
 
+    private AudioSource audioSource;
+
     void Start()
     {
         // Evita que el agente gire automáticamente (lo maneja el personaje con animaciones)
         agent.updateRotation = true;
     }
 
-    public void SetPlayerInControl(bool controlStartus) {
-        playerInControl= controlStartus;
+    public void SetPlayerInControl(bool controlStartus)
+    {
+        playerInControl = controlStartus;
     }
 
     void Update()
@@ -63,13 +72,17 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("velocity", agent.velocity.sqrMagnitude);
 
-        print(agent.velocity.sqrMagnitude);
+        //print(agent.velocity.sqrMagnitude);
 
-        if (DebugKeyboard && playerInControl) {
+        if (DebugKeyboard && playerInControl)
+        {
             HandleInput();
         }
     }
-
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void HandleInput()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -214,21 +227,27 @@ public class PlayerController : MonoBehaviour
 
     public void ApplyDamage()
     {
-        if (health <= 0) {
-            return;
-        }
+        if (health <= 0) return;
 
         health -= damgeToApply;
+
+        if (hurtSound != null && audioSource != null)
+        {
+            Debug.Log("Reproduciendo sonido de daño");
+
+            audioSource.PlayOneShot(hurtSound);
+        }
 
         if (health <= 0)
         {
             health = 0;
-            animator.SetTrigger("death"); // Activa animación de muerte
+            animator.SetTrigger("deathTrigger");
             playerInControl = false;
             mainMenuController.LostGame();
         }
-        else {
-            animator.SetTrigger("isHurting"); // Activa animación de daño
+        else
+        {
+            animator.SetTrigger("isHurting");
         }
     }
 
@@ -258,6 +277,20 @@ public class PlayerController : MonoBehaviour
             {
                 ammo--;
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                if (shootSound != null && audioSource != null)
+                {
+                    Debug.Log("Reproduciendo sonido de disparo");
+
+                    audioSource.PlayOneShot(shootSound);
+                }
+            }
+            else
+            {
+                // Reproducir sonido de "no hay munición"
+                if (noAmmoSound != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(noAmmoSound);
+                }
             }
         }
     }

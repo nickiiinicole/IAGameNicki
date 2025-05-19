@@ -29,9 +29,12 @@ public class AmmoPickup : MonoBehaviour
                     Instantiate(pickupEffect, transform.position, Quaternion.identity);
                 }
 
-                if (audioSource) {
-                    audioSource.Play();
+                if (audioSource != null && audioSource.clip != null)
+                {
+                    AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
                 }
+                
+
 
                 Destroy(gameObject);
             }

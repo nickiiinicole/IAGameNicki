@@ -13,9 +13,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float health = 100;
     [SerializeField] Animator animator;
     [SerializeField] bool isDead = false;
+    private AudioSource audioSource;
+    private float growlCooldown;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         agent.updateRotation = false;
 
         // Busca el primer GameObject en la escena con el tag "Player"
@@ -40,6 +44,11 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
+        if (Time.time > growlCooldown)
+        {
+            PlayGrowl();
+            growlCooldown = Time.time + Random.Range(3f, 8f); // el próximo gruñido entre 4 y 8 segundos
+        }
 
         if (agent.remainingDistance > agent.stoppingDistance)
         {
@@ -49,8 +58,16 @@ public class EnemyController : MonoBehaviour
         {
             characterController.Move(Vector3.zero, false, false);
         }
-    }
 
+
+    }
+    public void PlayGrowl()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play(); 
+        }
+    }
     public void TakeDamage(float damageAmount)
     {
         if (isDead)
