@@ -1,43 +1,116 @@
-# Progreso Semanal 6🧟‍🌾
+# 🧟‍🌾 Progreso Semanal 6 - *Farm Escape*
 
-### 🔹 Movimiento suave hacia un objetivo (PlayerFollow)
-- Se creó el script `PlayerFollow.cs`, que mueve suavemente un GameObject hacia un objetivo (`playerTarget`) usando `Vector3.Lerp`.
-- Se configuraron variables públicas para ajustar la **velocidad de seguimiento** (`followSpeed`) y la **distancia mínima** (`stoppingDistance`) en el Inspector.
-
-### 🔹 Apertura de puertas con Slerp (DoorController)
-- Las puertas giran suavemente usando interpolación esférica (`Quaternion.Slerp`) entre dos ángulos.
-- Se controla el acceso a la puerta mediante llaves (`keyRequired`) asociadas al jugador.
-- Al abrirse, se desactiva un `NavMeshObstacle` para permitir el paso del jugador.
-
-### 🔹 Menú en la misma escena (MainMenuController)
-- El menú principal está embebido en la misma escena del juego, sin necesidad de cargar una nueva escena.
-- Al pulsar el botón **Play**, se oculta el menú (`SetActive(false)`).
-- Incluye también opciones de configuración y salida del juego con `Application.Quit()`.
-
-### ⏳ Pantalla de Carga (Loading Screen, pero puede ser que la quite....)
-- Implementé una **pantalla de carga personalizada** entre el menú y el juego.
-- Aprendí a usar las **corutinas** (`IEnumerator`) para cargar escenas de forma asincrónica, evitando que el juego se congele.
-- Probé ideas como zombies caminando en la pantalla, pero decidí simplificarlo por estética y rendimiento.
-- Finalmente, dejé un fondo con una **imagen generada estilo low-poly 3D** y un **slider de progreso** que indica la carga. (Todavía no se si lo dejare así o lo quitare...)
-
-### 🧍‍♂️ Ajustes Controlador del Jugador
-- Trabajé de nuevo en el script que controla al personaje principal usando **NavMeshAgent** y el sistema de animaciones de **ThirdPersonCharacter**.
-
-### 💥 Daño y Efectos Visuales
-  - Planeé un sistema de **efecto visual tipo splash de sangre** que aparece en pantalla cuando recibe daño. (Pero lo quitare porque siento que no concuerda con la temática)
-  - Este sistema irá mostrando overlays rojos PNG (ya tengo la imagen), aumentando la intensidad con cada golpe.
-
-### 🧠 Aprendizajes Técnicos
-- Corutinas: aprendí a usarlas para procesos asincrónicos (como cargar escenas sin freeze).
-- Entendí cómo usar `SceneManager.LoadSceneAsync()` junto a una barra de progreso.
-- Mejor manejo del sistema de UI (eventos `OnClick`, sliders, imágenes overlay).
-- También toqué algo de animaciones con `Animator.SetTrigger` y `SetBool`.
+¡Última semana y muchas mejoras finales antes de cerrar el proyecto! 🎉
 
 ---
 
-## Cosas Pendientes
-- Pulir animaciones y direcciones del jugador
-- Revisar pequeños bugs como movimiento de zombies o posición inicial de los spawns.
+## 🔹 Mejoras en el Movimiento y Control del Jugador
+
+- Añadido soporte para **teclas de control** como alternativa a los comandos de voz, mejorando la accesibilidad:
+  - `↑ ↓ ← →` para movimiento básico.
+  - `Espacio` para detenerse.
+
+- 🐞 **Bug resuelto**: el modelo visual del jugador se desincronizaba al retroceder.  
+  - Causa: solo se movía el objeto hijo (mesh), no el objeto raíz con el `NavMeshAgent`.
+
 ---
 
-**¡Seguimos avanzando!** 🚜🧟‍♂️
+## 🔹 IA y Spawns de Enemigos
+
+- Ajustado el sistema de aparición de zombis:
+  - Ahora los primeros enemigos aparecen correctamente en la zona inicial.
+  - Reorganizados los **puntos de spawn** para evitar solapamientos o zonas vacías.
+  - Reparada la colisión de las balas, que antes no impactaban correctamente.
+
+- ⚙️ Aumentada la cantidad de enemigos para generar una dificultad más progresiva.
+
+---
+
+## 🔹 Sistema de Daño, Vida y Game Over
+
+- 🧠 Corregido el bug donde el estado `"Dead"` quedaba en bucle infinito.
+
+- Añadido un **sistema de regeneración de vida** (fase de pruebas).
+
+- Ajustado:
+  - Tiempo de daño recibido.
+  - Velocidad y respuesta de las animaciones (`Animator`).
+
+- 🔴 Se implementó un overlay visual de daño, aunque fue eliminado por razones estéticas.
+
+---
+
+## 🎨 Mejoras Visuales y Estéticas
+
+- Texturas y materiales reimportados manualmente por errores en el proceso.
+
+- Personalizado el color de **tablas de madera** para ambientación más cálida.
+
+- Añadidos detalles decorativos:
+  - Assets de partículas.
+  - Elementos del entorno (barriles, vegetación, herramientas...).
+
+- Nuevas **animaciones de prueba** para movimientos laterales y giros (en desarrollo).
+
+---
+
+## 🎤 Reconocimiento de Voz
+
+- Documentado cómo **activar el permiso del micrófono**:  
+  - `Win + I → Privacidad → Micrófono`.
+
+- ⚠️ Bug resuelto: el sistema fallaba debido al uso por defecto de `.NET 2.0`.  
+  - Se cambió a **.NET Framework** compatible con `System.Speech`.
+
+- Implementado `GrammarRecognizer` (fase experimental).
+
+---
+
+## 💥 Efectos y Audio
+
+- 🎧 Sonidos añadidos para eventos clave:
+  - Disparos, daño recibido, recogida de objetos, apertura de puertas.
+
+- Sistema mejorado:
+  - Control de volumen.
+  - Reproducción espacial (audio 3D en Unity).
+
+---
+
+## 📦 Recursos y Assets
+
+- Nuevos assets descargados:
+  - Partículas, armas, sonidos, decoración, efectos.
+
+- 🧹 Limpieza del proyecto:
+  - Organización de carpetas.
+  - Jerarquía más limpia y estructurada.
+
+---
+
+## 📚 Aprendizajes Técnicos
+
+Esta semana profundicé en:
+
+- Corutinas e `IEnumerator` para manejar delays y pantallas de carga.
+- Animaciones (`SetTrigger`, `SetBool`) y su sincronización con acciones del jugador.
+- Uso conjunto de `NavMesh`, `Rigidbody` y `Collider`.
+- Diseño modular del mapa con **ProBuilder**.
+- Reconocimiento de comandos de voz:
+  - `KeywordRecognizer` y `GrammarRecognizer`.
+
+---
+
+## ✅ Cosas Completadas esta Semana
+
+✔️ Sistema híbrido de control (voz + teclado).  
+✔️ Bug del movimiento hacia atrás corregido.  
+✔️ IA inicial y spawns ajustados.  
+✔️ Daño, colisiones y muerte reparados.  
+✔️ Mejora de estética del mapa y ambientación.  
+✔️ Documentación sobre permisos de micrófono y configuración de framework.
+
+---
+
+**¡Semana final completada con éxito!**  
+¡Zombies derrotados y proyecto entregado! 🧟‍♀️✅
