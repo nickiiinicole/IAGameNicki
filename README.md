@@ -16,7 +16,7 @@ Cada semana, publico un **devlog detallado** con avances 🛠️:
 - 📘 [Semana 3 - Enemigos, PickUps y más reconocimiento](Devlogs/semana-3.md)
 - 📘 [Semana 4 - Sistema de llaves, puertas y prefabs](Devlogs/semana-4.md)
 - 📘 [Semana 5 - Ajustes y mejoras generales](Devlogs/semana-5.md)
-- 📘 [Semana 6 - *En proceso...*](Devlogs/semana-6.md)
+- 📘 [Semana 6 - *FINALIZACION DE JUEGO...*](Devlogs/semana-6.md)
 
 ---
 
