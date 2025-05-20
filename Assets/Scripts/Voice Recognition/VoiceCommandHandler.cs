@@ -21,6 +21,10 @@ public class VoiceCommandHandler : MonoBehaviour
         {
             // Movimiento hacia adelante
             { "avanzar", MoveForward },
+            { "muevete para adelante", MoveForward },
+            { "sigue", MoveForward },
+            { "siga", MoveForward },
+            { "move", MoveForward },
             { "hacia adelante", MoveForward },
             { "vamos hacia adelante", MoveForward },
             { "sigue adelante", MoveForward },
@@ -35,7 +39,7 @@ public class VoiceCommandHandler : MonoBehaviour
             // Movimiento hacia atrás
             { "hacia atras", MoveBackward },
             { "vamos hacia atras", MoveBackward },
-            { "atrás", MoveBackward },
+            { "atras", MoveBackward },
             { "sigue hacia atras", MoveBackward },
             { "sigue hacia atras boludo", MoveBackward },
             { "retrocede", MoveBackward },
@@ -51,6 +55,8 @@ public class VoiceCommandHandler : MonoBehaviour
             // Disparo
             { "shoot", Shoot },
             { "dispara", Shoot },
+            { "dispara", Shoot },
+            { "matalo", Shoot },
             { "fire", Shoot },
 
             // Iniciar movimiento
@@ -70,6 +76,7 @@ public class VoiceCommandHandler : MonoBehaviour
             // Girar a la izquierda
             { "gira a la izquierda", TurnLeft },
             { "girar a la izquierda", TurnLeft },
+            { "vete a la izquierda", TurnLeft },
             { "izquierda", TurnLeft },
             { "dobla a la izquierda", TurnLeft },
             { "vuelta a la izquierda", TurnLeft },
@@ -78,6 +85,7 @@ public class VoiceCommandHandler : MonoBehaviour
 
             // Girar a la derecha
             { "gira a la derecha", TurnRight },
+            { "vete a la derecha", TurnRight },
             { "girar a la derecha", TurnRight },
             { "derecha", TurnRight },
             { "dobla a la derecha", TurnRight },
