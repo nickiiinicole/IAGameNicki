@@ -21,11 +21,7 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/MainMenuScene.unity
-  - m_enabled: 1
     m_path: Assets/Scenes/FarmFinal.unity
-  - m_enabled: 1
-    m_path: Assets/Scenes/LoadingScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []

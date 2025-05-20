@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public MainMenuController mainMenuController;
     public bool playerInControl = false;
-    public float playerRotationStep = 20.0f;
+    public float playerRotationStep = 40.0f;
     public TextMeshProUGUI textMeshProAmmo;
     public TextMeshProUGUI textMeshProHealth;
 
@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            animator.SetTrigger("deathTrigger");
+            animator.SetTrigger("death");
             playerInControl = false;
             mainMenuController.LostGame();
         }
