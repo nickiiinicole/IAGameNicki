@@ -48,7 +48,7 @@ Cada semana, publico un **devlog detallado** con avances 🛠️:
 
 ## 🧩 Instalación y Ejecución
 
-1. Descarga la carpeta comprimida del proyecto desde [este enlace de Drive](https://drive.google.com/file/d/1myLKgdGfGisCNXlk4sgQ0AH0wGHpKFJp/view?usp=sharing).
+1. Descarga la carpeta comprimida del proyecto desde [este enlace de Drive](https://drive.google.com/drive/folders/1KeiGJ5knoZdEh49FL3D11SXAtmIl2-Ue?usp=sharing).
 2. Extrae el `.zip`.
 3. Abre la carpeta y ejecuta el archivo `FarmEscape.exe`.
 4. Acepta los permisos de micrófono cuando se muestren (si el sistema lo solicita).
