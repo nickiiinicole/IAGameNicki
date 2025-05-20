@@ -29,29 +29,7 @@ public class BulletController : MonoBehaviour
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    //public void OnCollisionEnter(Collision collisionObject)
-    //{
-    //    Debug.Log("Bala entra en contacto");
-
-    //    if (collisionObject.gameObject.tag == "Enemy")
-    //    {
-    //        Debug.Log("Bala entra en contacto tag enemy");
-
-    //        EnemyController enemyController = collisionObject.gameObject.GetComponent<EnemyController>();
-    //        if (enemyController != null)
-    //        {
-    //            enemyController.TakeDamage(damage);
-    //            Debug.Log("Bala colisionada con el enemigo"); 
-    //        }
-
-    //        if (particlePrefab != null)
-    //        {
-    //            GameObject spawnedEffect = Instantiate(particlePrefab, gameObject.transform.position, gameObject.transform.rotation);
-    //        }
-
-    //        Destroy(gameObject); // Destruye la bala al impactar
-    //    }
-    //}
+ 
 
     private void OnTriggerEnter(Collider other)
     {
