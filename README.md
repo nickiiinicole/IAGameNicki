@@ -3,9 +3,6 @@
 
 ¡Bienvenid@ al desarrollo de **Farm Escape**!  
 🎮 Un juego de supervivencia con estilo *low poly*, donde exploras una granja abandonada y escapas usando tu **voz** para guiar al personaje.
-También puedes ver mi mini GAMEPLAY:D
- --->Mira el video aquí: [Ver video en Google Drive](https://drive.google.com/file/d/1ilb-XVztPQJKX-YVk0HolkbX-Rpq4EZm/view?usp=sharing)📹
-
 
 ---
 
